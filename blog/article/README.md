@@ -1,0 +1,4 @@
+# README
+
+THIS FOLDER IS USED TO STORE MARKDOWN ARTICLES.  
+这个文件夹用户存储 Markdown 文章。
