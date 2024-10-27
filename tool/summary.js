@@ -24,7 +24,7 @@ function datetime() {
 // 获取文件的创建时间（第一次 git commit 的时间）
 async function getFileCreateTime(filepath) {
     return new Promise((resolve, reject) => {
-        exec(`git log --reverse --format="%ai" -- ${filepath}`, (err, stdout, stderr) => {
+        exec(`git log --reverse --format="%ai" -- '${filepath}'`, (err, stdout, stderr) => {
             if (err || stdout.trim().length === 0) {
                 resolve(datetime());
             } else {
@@ -42,7 +42,7 @@ async function getFileCreateTime(filepath) {
 // 获取文件的修改时间（最后一次 git commit 的时间）
 async function getFileModifyTime(filepath) {
     return new Promise((resolve, reject) => {
-        exec(`git log --format="%ai" -- ${filepath}`, (err, stdout, stderr) => {
+        exec(`git log --format="%ai" -- '${filepath}'`, (err, stdout, stderr) => {
             if (err || stdout.trim().length === 0) {
                 resolve(datetime());
             } else {
