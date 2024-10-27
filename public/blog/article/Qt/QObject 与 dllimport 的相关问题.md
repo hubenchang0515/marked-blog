@@ -46,4 +46,4 @@ add_executable(demo main.cpp lib.h)
 
 但这是错误的解决办法，这将导致外部项目和库中的 staticMetaObject 是不同的对象。  
 
-并且如果引用的库不是自己开发的，声明了 dllexport 和 dllimport 将导致 `不允许 dllimport 静态数据成员 staticMetaObject` 的错误。
+并且，如果引用的头文件中已经声明了 `DLL_EXPORT`，同时外部项目不是 `BUILD_SHARED`（例如构建可执行程序）。此时 `DLL_EXPORT` 将被解析为 `__declscpe(dllimport)`，从而导致头文件报 `不允许 dllimport 静态数据成员 staticMetaObject` 的错误。
