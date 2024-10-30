@@ -33,7 +33,7 @@ export default function Article(props:ArticleProps) {
     }, [props.data.url]);
 
     return (
-        <div className="card shadow p-3" style={{borderRadius: 0}}>
+        <div className="card shadow p-3 markdown-body" style={{borderRadius: 0}}>
             <div className="text-center">
                 <h1 className="text-body-secondary">{props.data.title}</h1>
                 <div className="text-body-tertiary">
@@ -51,6 +51,12 @@ export default function Article(props:ArticleProps) {
                         <i className="bi bi-bookmarks me-1"></i> 
                         <a className="link-secondary" href={`#/summary?category=${props.data.category}`}>{props.data.category}</a>
                     </span>
+
+                    <span className="me-2 no-print"  style={{whiteSpace:'nowrap'}}>
+                        <i className="bi bi-download me-1"></i> 
+                        <a className="link-secondary" href="javascript:void(0)" onClick={() => {window.print()}}>下载</a>
+                    </span>
+
                 </div>
             </div>
 

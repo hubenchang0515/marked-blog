@@ -1,7 +1,8 @@
 import { useEffect, useRef } from "react";
 import * as marked from "marked";
 import hljs from 'highlight.js';
-import 'highlight.js/styles/github-dark.min.css';
+import 'highlight.js/styles/github.min.css';
+import "github-markdown-css/github-markdown.css"
 
 export interface MarkdownProps {
     content: string
