@@ -33,8 +33,8 @@ export default function Article(props:ArticleProps) {
     }, [props.data.url]);
 
     return (
-        <div className="card shadow p-3 markdown-body" style={{borderRadius: 0}}>
-            <div className="text-center">
+        <div className="card shadow p-3" style={{borderRadius: 0}}>
+            <div className="text-center no-print">
                 <h1 className="text-body-secondary">{props.data.title}</h1>
                 <div className="text-body-tertiary">
                     <span className="me-2" style={{whiteSpace:'nowrap'}}>
@@ -54,19 +54,22 @@ export default function Article(props:ArticleProps) {
 
                     <span className="me-2 no-print"  style={{whiteSpace:'nowrap'}}>
                         <i className="bi bi-download me-1"></i> 
-                        <a className="link-secondary" href="javascript:void(0)" onClick={() => {window.print()}}>下载</a>
+                        <a className="link-secondary" href="javascript:void(0)" onClick={() => {
+                            const title = document.title;
+                            document.title = props.data.title;
+                            window.print();
+                            document.title = title;
+                        }}>下载</a>
                     </span>
 
                 </div>
             </div>
 
-            <div className="pb-5"/>
-
             <Markdown content={content}/>
 
-            {(props.prev || props.next) && <hr/>}
+            {(props.prev || props.next) && <hr className="no-print"/>}
 
-            <div className="row">
+            <div className="row no-print">
                 <div className="col  text-start">
                 {
                     props.prev && 

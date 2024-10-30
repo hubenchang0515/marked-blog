@@ -18,6 +18,6 @@ export default function Markdown(props:MarkdownProps) {
         
     });
     return (
-        <div ref={divRef} className="markdown"></div>
+        <div ref={divRef} className="markdown-body"></div>
     )
 }
