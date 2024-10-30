@@ -100,6 +100,7 @@ fs.readdir(ARTICLE_PATH, async (err, categories) => {
                 
                 n = n-1;
                 if (n === 0) {
+                    summary.sort((x,y) => x.articles.length - y.articles.length).reverse();
                     fs.writeFile(SUMMARY_PATH, JSON.stringify(summary, null, 2), (err) => {
                         if (err) {
                             console.error(err);
