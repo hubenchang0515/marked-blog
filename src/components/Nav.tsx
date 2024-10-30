@@ -14,7 +14,7 @@ export default function Nav(props:NavProps) {
     const location = useLocation();
     
     return (
-        <nav className="navbar navbar-expand-lg bg-body-tertiary shadow-sm" style={{position:'sticky', top:0, left:0, right: 0, zIndex:99}}>
+        <nav className="navbar navbar-expand-lg bg-body-tertiary shadow-sm no-print" style={{position:'sticky', top:0, left:0, right: 0, zIndex:99}}>
             <a className="btn btn-light navbar-brand" href="https://github.com/hubenchang0515/marked-blog">
                 <i className="bi bi-github"></i>
             </a>
